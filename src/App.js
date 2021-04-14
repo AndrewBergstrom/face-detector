@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navigation from "./components/Navigation";
 import Logo from "./components/Logo";
+import SignIn from "./components/SignIn";
 import ImageLinkForm from "./components/ImageLinkForm";
 import FaceRecognition from "./components/FaceRecognition";
 import Rank from "./components/Rank";
@@ -73,6 +74,7 @@ class App extends Component {
       <div className="App">
         <Particles className="particles" params={particlesOptions} />
         <Navigation />
+        <SignIn />
         <Logo />
         <Rank />
         <ImageLinkForm
