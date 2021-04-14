@@ -5,7 +5,7 @@
 ---
   
   ## Project Description:
-  ### With the Clarifai API, this project a machine learning model to detect faces in pictures. A full stack application where the user signs in, uploads a picture using a URL and then has the results displayed right in front of them. 
+  ### With the Clarifai API, this project uses a machine learning model to detect faces in pictures. A full stack application where the user signs in, uploads a picture using a URL and then has the results displayed right in front of them. 
   ![](public/.jpg)
 ---
  
