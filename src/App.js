@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Navigation from "./components/Navigation";
 import Logo from "./components/Logo";
 import SignIn from "./components/SignIn";
+import Register from "./components/Register";
 import ImageLinkForm from "./components/ImageLinkForm";
 import FaceRecognition from "./components/FaceRecognition";
 import Rank from "./components/Rank";
@@ -70,30 +71,34 @@ class App extends Component {
   };
 
   onRouteChange = (route) => {
-    this.setState({route: route});
-  }
+    this.setState({ route: route });
+  };
 
   render() {
     return (
       <div className="App">
         <Particles className="particles" params={particlesOptions} />
-        <Navigation onRouteChange={this.onRouteChange}/>
-        {this.state.route === "signin" 
-        ? <SignIn onRouteChange={this.onRouteChange}/>
-         : <div>
+
+        <Navigation onRouteChange={this.onRouteChange} />
+
+        {this.state.route === "home" ? (
+          <div>
             <Logo />
             <Rank />
             <ImageLinkForm
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit}
             />
-
             <FaceRecognition
               box={this.state.box}
               imageUrl={this.state.imageUrl}
             />
           </div>
-        }
+        ) : this.state.route === "signin" ? (
+          <SignIn onRouteChange={this.onRouteChange} />
+        ) : (
+          <Register onRouteChange={this.onRouteChange} />
+        )}
       </div>
     );
   }
