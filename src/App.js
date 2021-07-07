@@ -34,8 +34,25 @@ class App extends Component {
       imageUrl: "",
       box: {},
       route: "signin",
-      isSignedIn: false
+      isSignedIn: false,
+      user:{
+        email:'',
+        id:'',
+        name:'',
+        entries:0,
+        joined:''
+      }
     };
+  }
+
+  loadUser = (data) => {
+    this.setState( {user: {
+      id:data.id,
+      email:data.email,
+      name:data.name,
+      entries:data.entries,
+      joined:data.joined
+     }})
   }
 
   calculateFaceLocation = (data) => {
