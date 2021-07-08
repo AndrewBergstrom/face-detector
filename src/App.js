@@ -30,15 +30,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      input: "",
-      imageUrl: "",
+      input: '',
+      imageUrl: '',
       box: {},
-      route: "signin",
+      route: 'signin',
       isSignedIn: false,
       user:{
-        email:'',
         id:'',
         name:'',
+        email:'',
         entries:0,
         joined:''
       }
@@ -48,8 +48,8 @@ class App extends Component {
   loadUser = (data) => {
     this.setState( {user: {
       id:data.id,
-      email:data.email,
       name:data.name,
+      email:data.email,
       entries:data.entries,
       joined:data.joined
      }})
@@ -109,7 +109,7 @@ class App extends Component {
         {this.state.route === "home" ? (
           <div>
             <Logo />
-            <Rank />
+            <Rank name={this.state.user.name} entries={this.state.user.entries}/>
             <ImageLinkForm
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit}
@@ -120,9 +120,9 @@ class App extends Component {
             />
           </div>
         ) : route === "signin" ? (
-          <SignIn onRouteChange={this.onRouteChange} />
+          <SignIn onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
         ) : (
-          <Register onRouteChange={this.onRouteChange} />
+          <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
         )}
       </div>
     );
